@@ -4,9 +4,10 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Home } from './components/Home';
+import { ServiceRecord } from './components/ServiceRecord';
 import { Leaderboard } from './components/Leaderboard';
 import { NavBar } from './components/layout/Navbar';
+import { GameHistory } from './components/GameHistory';
 
 function App() {
   return (
@@ -17,8 +18,14 @@ function App() {
           <Route path="/leaderboards">
             <Leaderboard />
           </Route>
+          <Route path="/game-history">
+            <GameHistory />
+          </Route>
+          <Route path="/service-record">
+            <ServiceRecord />
+          </Route>
           <Route path="/">
-            <Home />
+            <ServiceRecord />
           </Route>
         </Switch>
     </Router>

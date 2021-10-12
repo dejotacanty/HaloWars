@@ -18,7 +18,7 @@ const formatLeaderStatData = (stat: AllLeaderStats) => {
     return leaderStatsTmp;
 }
 
-export const Home = () => {
+export const ServiceRecord = () => {
     const {playerStatSummary} = usePlayerStatSummary('warnster');
 
     const [selectedPlaylistId, setSelectedPlaylistId] = useState<string>('all_ranked')

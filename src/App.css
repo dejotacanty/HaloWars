@@ -1,5 +1,6 @@
 body, html, #root {
-  height: 100%
+  height: 100%;
+  font-family: wf_heroic-condensed-pro_medium,Calibri,"Arial Narrow","Trebuchet MS",Tahoma,Arial,sans-serif;
 }
 
 .App {
