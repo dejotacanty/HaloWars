@@ -15,6 +15,7 @@ import { HaloRankPieChart } from "./charts/legacy/RankPieChart";
 import { WinLossBars } from "./charts/legacy/WinLossBars";
 import { HaloWinPercentage } from "./charts/legacy/WinPercentage";
 import { HaloPieChart } from "./charts/PieChart";
+import { SimpleBarChart } from "./charts/SimpleBarChart";
 
 const formatLeaderStatData = (stat: AllLeaderStats) => {
   let leaderStatsTmp: PieChartData[] = [];
@@ -33,24 +34,25 @@ export const ServiceRecord = () => {
   const [leaderStats, setLeaderStats] = useState<PieChartData[]>([]);
 
   const ref = useRef<any>();
-  const [leaderPieChartHeight, setLeaderPieChartHeight] = useState(ref.current ? ref.current.offsetWidth : 0);
+  const [leaderPieChartHeight, setLeaderPieChartHeight] = useState(
+    ref.current ? ref.current.offsetWidth : 0
+  );
 
   useEffect(() => {
-    setLeaderPieChartHeight(ref.current ? ref.current.offsetWidth : 0)
-  },[ref.current])
+    setLeaderPieChartHeight(ref.current ? ref.current.offsetWidth : 0);
+  }, [ref.current]);
 
   useEffect(() => {
     function handleResize() {
-      setLeaderPieChartHeight(ref.current ? ref.current.offsetWidth : 0)
+      setLeaderPieChartHeight(ref.current ? ref.current.offsetWidth : 0);
     }
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize)
-    
-}
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (!playerStatSummary) return;
@@ -93,7 +95,44 @@ export const ServiceRecord = () => {
       });
     });
   }
-  
+
+  const rankData: PieChartData[] = [
+    {
+      name: "onyx",
+      value: 100,
+    },
+    {
+      name: "empty",
+      value: 0,
+    },
+  ];
+
+  const winLossData: PieChartData[] = [
+    {
+      name: "win",
+      value: 53,
+    },
+    {
+      name: "loss",
+      value: 47,
+    },
+  ];
+
+
+  const winData = [];
+  const lossData = [];
+  for (let i = 0; i < 20; i++) {
+    const random = Math.random();
+    winData.push({
+      name: "win",
+      value: random < 0.5 ? 100 : 0,
+    });
+    lossData.push({
+      name: "loss",
+      value: random >= 0.5 ? 100 : 0,
+    });
+  }
+
   return (
     <main id="main">
       <div className="region">
@@ -102,8 +141,7 @@ export const ServiceRecord = () => {
           <hr />
           <div className="grid">
             <div className="row row-4 valign-bottom">
-
-            <div className="col">
+              <div className="col">
                 <a
                   className="text--large case-sensitive"
                   href="https://www.halowaypoint.com/en-gb/players/warnster"
@@ -127,7 +165,12 @@ export const ServiceRecord = () => {
                         <p className="text--smallest">Decimus</p>
                       </div>
                     </div>
-                    <HaloPieChart data={leaderStats} label="games" height={leaderPieChartHeight}/>
+                    <HaloPieChart
+                      data={leaderStats}
+                      label="games"
+                      height={leaderPieChartHeight}
+                      chartSetting="leader"
+                    />
                   </div>
                 </div>
               </div>
@@ -179,7 +222,7 @@ export const ServiceRecord = () => {
               </div>
               <div className="col">
                 {" "}
-                <div className="stat">
+                <div className="halo-circle stat">
                   <div className="chart-title">
                     <p className="text--large">RANKED 3v3 X WAR</p>
                     <p className="text--smallest">Top All-Time CSR</p>
@@ -197,14 +240,19 @@ export const ServiceRecord = () => {
                           <p className="text--smallest">CSR: 1642</p>
                         </div>
                       </div>
-                      <HaloRankPieChart />
+                      <HaloPieChart
+                        chartSetting="rank"
+                        data={rankData}
+                        label="Rank"
+                        height={leaderPieChartHeight}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
               <div className="col">
                 {" "}
-                <div className="stat">
+                <div className="halo-circle stat">
                   <div
                     className="circle-chart loaded"
                     data-half-circle=""
@@ -222,16 +270,18 @@ export const ServiceRecord = () => {
                         </p>
                       </div>
                     </div>
-                    <HaloWinPercentage />
+                    <div style={{marginBottom: -leaderPieChartHeight/2}}>
+                    <HaloPieChart data={winLossData} label="" height={leaderPieChartHeight} chartSetting="winLoss"/>
+                    </div>
                   </div>
                 </div>
                 <div className="stat">
                   <h4 className="text--smallest">Last 20 games</h4>
-                  <div
-                    className="bar-chart loaded"
-                    data-values="1,1,-1,-1,1,1,1,1,-1,1,-1,-1,1,1,1,1,1,1,1,-1"
-                  >
-                    <WinLossBars />
+                  <div style={{ height: "30px" }}>
+                    <SimpleBarChart colour={"#43bbef"} data={winData} />
+                  </div>
+                  <div style={{ height: "30px" }}>
+                    <SimpleBarChart colour={"#f14108"} data={lossData} />
                   </div>
                   <ol className="color-legend">
                     <li className="color-1">
