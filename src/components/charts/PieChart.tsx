@@ -22,7 +22,7 @@ export const HaloPieChart = ({data, label, height, chartSetting}: {data: PieChar
       paddingAngle: 0,
       startAngle:180,
       endAngle: 0,
-      colours: ['#43bbef', '#ffffff']
+      colours: ['#43bbef', '#eee']
     }
   }
 

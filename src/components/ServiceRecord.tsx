@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { playlists } from "../data/playlists";
 import { usePlayerStatSummary } from "../hooks/player/PlayerStatSummary";
 import { PieChartData } from "../interfaces/Chart";
@@ -9,13 +10,9 @@ import {
   RankedModeStatsEntity,
 } from "../interfaces/PlayerStatSummary";
 import { entries } from "../utils/entries";
-import { HaloBarChart } from "./charts/BarChart";
-import { HaloPlayerPercentage } from "./charts/legacy/PlayerPercentage";
-import { HaloRankPieChart } from "./charts/legacy/RankPieChart";
-import { WinLossBars } from "./charts/legacy/WinLossBars";
-import { HaloWinPercentage } from "./charts/legacy/WinPercentage";
 import { HaloPieChart } from "./charts/PieChart";
 import { SimpleBarChart } from "./charts/SimpleBarChart";
+import { Page } from "./layout/Page";
 
 const formatLeaderStatData = (stat: AllLeaderStats) => {
   let leaderStatsTmp: PieChartData[] = [];
@@ -134,11 +131,7 @@ export const ServiceRecord = () => {
   }
 
   return (
-    <main id="main">
-      <div className="region">
-        <div className="content">
-          <h2 className="text--larger">Summary</h2>
-          <hr />
+    <Page title="Summary">
           <div className="grid">
             <div className="row row-4 valign-bottom">
               <div className="col">
@@ -303,21 +296,13 @@ export const ServiceRecord = () => {
               </div>
             </div>
           </div>
+          <div className="button-list">
+            <ul>
+                <li><Link className="button" to="/game-history">Game History</Link></li>
+            </ul>
         </div>
-      </div>
-      {/* <Form.Control
-            as="select"
-            onChange={(e) => setSelectedPlaylistId(e.target.value)}>
-                {selectOptions.map((option) => {
-                    return <option value={option.value}>{option.name}</option>
-                })}
-            </Form.Control>
-        <div style={{width: "100%", height: 400}}>
-            <HaloBarChart data={leaderStats}></HaloBarChart>
-        </div>
-        <div style={{width: "100%", height: 400}}>
-            <HaloPieChart data={leaderStats} label="balh"></HaloPieChart>
-        </div> */}
-    </main>
+        
+      
+    </Page>
   );
 };

@@ -1,3 +1,71 @@
 .nav-link {
     padding: 0
 }
+
+/* Dropdown Button */
+.customdrop .dropbtn {
+    background-color: #3498DB;
+    border: none;
+    cursor: pointer;
+    padding: 9px 34px 9px 2px;
+    font-size: 23px;
+    background-color: transparent;
+    text-transform: uppercase;
+  }
+
+  .customdrop .dropbtn::after {
+    top: 10px;
+    font-size: 16px;
+    content: "˅";
+    font-family: wf_halo-icons_regular;
+    position: absolute;
+    right: .4375em;
+    width: 1.3125em;
+    text-align: center;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .customdrop  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2a2e32;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .customdrop  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .customdrop  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1d2023;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .customdrop  .dropdown-content a {
+    color: #98d0f1;
+    padding: 10px 16px;
+    text-transform: none;
+    font-family: wf_heroic-condensed-pro_medium,Calibri,"Arial Narrow","Trebuchet MS",Tahoma,Arial,sans-serif;
+    font-size: 1.42857em;
+    line-height: normal;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .customdrop  .dropdown-content a:hover {background-color: rgba(0,0,0,.1); color: #ffc81a}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .customdrop  .show {display:block;}
+
+  .customdrop .selected {
+    background-color: rgba(0,0,0,.1);
+    color: #fff !important;
+    text-decoration: underline !important;
+  }
+  
