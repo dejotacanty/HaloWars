@@ -42,6 +42,7 @@ toggle between hiding and showing the dropdown content */
 
   const dropdownList: { [key: string]: string } = {
     "/service-record": "Service Record",
+    "/": "Service Record",
     "/game-history": "Game History",
     "/leaderboards": "Leaderboards",
   };
@@ -118,6 +119,7 @@ toggle between hiding and showing the dropdown content */
                   </button>
                   <div id="myDropdown" className="dropdown-content">
                     {Object.keys(dropdownList).map((key) => {
+                      if(key === "/") return
                       return (
                         <Link
                           className={`drop-link ${
