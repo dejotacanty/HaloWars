@@ -161,6 +161,8 @@ toggle between hiding and showing the dropdown content */
             <div className="content">
               <h4 className="text--small">Games</h4>
               <h1 className="text--largest">Halo Wars 2 | {gamerTag}</h1>
+              {gamerTag && (
+                
               <div className="customdrop">
                 <div className="dropdown">
                   <button onClick={myFunction} className="dropbtn">
@@ -183,6 +185,7 @@ toggle between hiding and showing the dropdown content */
                   </div>
                 </div>
               </div>
+              )}
             </div>
           </div>
         </div>

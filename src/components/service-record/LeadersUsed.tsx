@@ -46,6 +46,7 @@ export const LeadersUsed = ({
           </div>
           <div className="value">{Math.round(stats[1].value / total * 100)}%</div>
         </li>
+        {stats[2] && (
         <li className="color-3">
           <div className="desc">
             {stats[2].name}
@@ -53,6 +54,9 @@ export const LeadersUsed = ({
           </div>
           <div className="value">{Math.round(stats[2].value / total * 100)}%</div>
         </li>
+        )}
+        {stats[3] && (
+          
         <li className="color-4">
           <div className="desc">
             {stats[3].name}
@@ -60,6 +64,7 @@ export const LeadersUsed = ({
           </div>
           <div className="value">{Math.round(stats[3].value / total * 100)}%</div>
         </li>
+        )}
       </ol>
     </div>
   );

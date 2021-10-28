@@ -633,6 +633,7 @@ export const  leaderData: {[key: string]: ILeader} = {
                     "Container": -1
                 },
                 "Media": {
+                    "MediaHeadUrlMain": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fanders-0d9b72aa7a9a4831a06ee2f1f4fa5ece.png&leftCrop=80&rightCrop=80&bottomCrop=1080&topCrop=180&width=400&hash=kEcc7%2bxwkFYx0rOF6Sa92jrIV5vCZN%2bS8OzYO7nkeAU%3d",
                     "MediaHeadUrl": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fanders-0d9b72aa7a9a4831a06ee2f1f4fa5ece.png&leftCrop=342&rightCrop=515&bottomCrop=1145&topCrop=180&width=120&height=120&hash=nrlO18fPV4oeXy20lMqe%2bhfor%2ffWCAAkx69nTrKBd8c%3d",
                     "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/leaders/anders-0d9b72aa7a9a4831a06ee2f1f4fa5ece.png",
                     "MimeType": "image/png",
@@ -1295,6 +1296,7 @@ export const  leaderData: {[key: string]: ILeader} = {
                     "Container": -1
                 },
                 "Media": {
+                    "MediaHeadUrlMain": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fshipmaster-342c9c4fe0fb439bb6a3dbc89ed8a842.png&leftCrop=80&rightCrop=80&bottomCrop=1080&topCrop=180&width=400&hash=pq8Yw%2bNoTJrxzjYjHX9MAG7Q%2bDjpKWs2KTMazhd7XvY%3d",
                     "MediaHeadUrl": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fshipmaster-342c9c4fe0fb439bb6a3dbc89ed8a842.png&leftCrop=342&rightCrop=515&bottomCrop=1145&topCrop=180&width=120&height=120&hash=h0ezLw8gNsiCCG292KcU98FgLIySk995bGEybddKRWU%3d",
                     "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/leaders/shipmaster-342c9c4fe0fb439bb6a3dbc89ed8a842.png",
                     "MimeType": "image/png",
@@ -1734,6 +1736,7 @@ export const  leaderData: {[key: string]: ILeader} = {
                     "Container": -1
                 },
                 "Media": {
+                    "MediaHeadUrlMain": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fkisano-92cdaa76c8304ce5955352f9af5a5ece.png&leftCrop=80&rightCrop=80&bottomCrop=1080&topCrop=180&width=400&hash=I6vCyz1dQ6aQpJYcrwWjuCJSyWBsNyZn4u%2bYeCiIh5U%3d",
                     "MediaHeadUrl": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fkisano-92cdaa76c8304ce5955352f9af5a5ece.png&leftCrop=342&rightCrop=515&bottomCrop=1145&topCrop=180&width=120&height=120&hash=HyRRQXFSPuVvFI1DfoQA1V9nErDFEK40lEAkxSumO7s%3d",
                     "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/leaders/kisano-92cdaa76c8304ce5955352f9af5a5ece.png",
                     "MimeType": "image/png",
@@ -2383,6 +2386,7 @@ export const  leaderData: {[key: string]: ILeader} = {
                     "Container": -1
                 },
                 "Media": {
+                    "MediaHeadUrlMain": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fhw2-leader-crop-johnson-2978545f84b54ece8efef7af4d6600e1.png&leftCrop=80&rightCrop=80&bottomCrop=1080&topCrop=180&width=400&hash=owFhjs29QCLV0nVEfhg8TSumHq3nYlKtib75VqSMvJg%3d",
                     "MediaHeadUrl": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fhw2-leader-crop-johnson-2978545f84b54ece8efef7af4d6600e1.png&leftCrop=342&rightCrop=515&bottomCrop=1145&topCrop=180&width=120&height=120&hash=rPJ9qZjnryv6i%2bXgqG4a0hjS4kVCCXaWc8mHRlwdsu8%3d",
                     "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/leaders/hw2-leader-crop-johnson-2978545f84b54ece8efef7af4d6600e1.png",
                     "MimeType": "image/png",
@@ -3307,6 +3311,7 @@ export const  leaderData: {[key: string]: ILeader} = {
                     "Container": -1
                 },
                 "Media": {
+                    "MediaHeadUrlMain" : "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fleader-image-pavium-94fe439dc91844f3b9c6a58f0b56042d.png&leftCrop=80&rightCrop=80&bottomCrop=1080&topCrop=180&width=400&hash=hoEkeBNZVCOnBhORlqJECl6o%2bZmnGaWQKyC8ecQf2Fo%3d",
                     "MediaHeadUrl": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fleader-image-pavium-94fe439dc91844f3b9c6a58f0b56042d.png&leftCrop=342&rightCrop=515&bottomCrop=1145&topCrop=180&width=120&height=120&hash=v0MRLzpj5JOB5wqEVoIKmCG5ZfevAxx37NlKCckOJ9k%3d",
                     "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/leaders/leader-image-pavium-94fe439dc91844f3b9c6a58f0b56042d.png",
                     "MimeType": "image/png",
