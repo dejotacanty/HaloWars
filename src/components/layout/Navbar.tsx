@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import {
   GAME_FULL_IMG,
   GAME_IMG,
@@ -10,10 +10,10 @@ import {
   MAIN_IMG,
   MAIN_SML_IMG,
 } from "../../data/images";
+import { GlobalContext } from "../../context/context";
 
 export const NavBar = () => {
   const location = useLocation();
-  console.log(location.pathname);
   /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
   function myFunction() {
@@ -45,6 +45,7 @@ toggle between hiding and showing the dropdown content */
     "/": "Service Record",
     "/game-history": "Game History",
     "/leaderboards": "Leaderboards",
+    "/game": "Game History",
   };
 
   const getCoverImage = () => {
@@ -59,6 +60,10 @@ toggle between hiding and showing the dropdown content */
         image =
           GAME_SML_IMG + " 800w, " + GAME_IMG + " 1120w, " + GAME_FULL_IMG;
         break;
+      case "/game":
+        image =
+          GAME_SML_IMG + " 800w, " + GAME_IMG + " 1120w, " + GAME_FULL_IMG;
+        break;
       default:
         image =
           MAIN_SML_IMG + " 800w, " + MAIN_IMG + " 1120w, " + MAIN_FULL_IMG;
@@ -66,6 +71,16 @@ toggle between hiding and showing the dropdown content */
 
     return image;
   };
+
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const {gamerTag, setGamerTag} = useContext(GlobalContext);
+
+  const updateGamerTag = () => {
+    if(searchInputRef.current) {
+      setGamerTag(searchInputRef.current.value)
+    }
+  }
+
   return (
     <div>
       <header id="site-header" className="dark">
@@ -83,7 +98,41 @@ toggle between hiding and showing the dropdown content */
                   alt="Halo"
                 />
               </a>
+              <div className="search-form">
+              <div className="search-box" style={{marginTop: "7px"}}>
+                <div className="input-wrapper">
+                  <input
+                    id="query"
+                    name="query"
+                    type="search"
+                    placeholder="Search Site or Gamertag"
+                    maxLength={100}
+                    data-autosuggest=""
+                    data-autosuggest-links=""
+                    autoComplete="off"
+                    onKeyPress={(event) => {
+                      if(event.key === 'Enter') {
+                        updateGamerTag()
+                      }
+                    } }
+                    ref={searchInputRef}
+                  />
+                </div>
+                {/* <Link to={`/service-record?gamerTag=${searchInputRef.current?.value}`}> */}
+                <button
+                  type="submit"
+                  value="Search"
+                  data-analytics="Site:Header/Search"
+                  aria-label="Search"
+                  onClick={updateGamerTag}
+                >
+                <span>Search</span>
+                <span className="icon icon--search"></span>
+              </button>
+              {/* </Link> */}
+              </div>
             </div>
+          </div>
           </div>
         </div>
       </header>
@@ -111,7 +160,7 @@ toggle between hiding and showing the dropdown content */
           <div className="content-offset">
             <div className="content">
               <h4 className="text--small">Games</h4>
-              <h1 className="text--largest">Halo Wars 2 </h1>
+              <h1 className="text--largest">Halo Wars 2 | {gamerTag}</h1>
               <div className="customdrop">
                 <div className="dropdown">
                   <button onClick={myFunction} className="dropbtn">
@@ -119,7 +168,7 @@ toggle between hiding and showing the dropdown content */
                   </button>
                   <div id="myDropdown" className="dropdown-content">
                     {Object.keys(dropdownList).map((key) => {
-                      if(key === "/") return
+                      if (key === "/" || key === "/game") return;
                       return (
                         <Link
                           className={`drop-link ${

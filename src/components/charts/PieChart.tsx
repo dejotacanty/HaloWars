@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from 'recharts';
+import { PieChart, Pie, ResponsiveContainer, Cell } from 'recharts';
 import { PieChartData } from '../../interfaces/Chart';
+import { designationToColourMap } from '../../utils/helpers';
 
 
-export const HaloPieChart = ({data, label, height, chartSetting}: {data: PieChartData[], label: string, height: number, chartSetting: string}) => {
+export const HaloPieChart = ({data, label, height, chartSetting, designation}: {data: PieChartData[], label: string, height: number, chartSetting: string, designation?: number}) => {
 
   const pieChartSettings: {[key: string]: any} = {
     leader: {
-      paddingAngle: 5,
+      paddingAngle: 2,
       startAngle: 90,
       endAngle: -270,
       colours: ['#43bbef', '#0f7ab3', '#91d642', '#8741a2']
@@ -16,7 +16,7 @@ export const HaloPieChart = ({data, label, height, chartSetting}: {data: PieChar
       paddingAngle: 0,
       startAngle:90,
       endAngle: -270,
-      colours: ['#0a090a', '#ffffff']
+      colours: [designation ? designationToColourMap(designation) : 1, '#eee']
     },
     winLoss: {
       paddingAngle: 0,

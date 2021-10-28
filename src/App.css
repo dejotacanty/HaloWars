@@ -47,3 +47,15 @@ body, html, #root {
   display: block;
   padding-top: 0;
 }
+
+.blue-match-gradiant::after {
+  background: linear-gradient(to bottom,transparent,"#304197");
+}
+
+.red-match-gradiant::after {
+  background: linear-gradient(to bottom,transparent,"#98252A");
+}
+
+.table-surface {
+  font-family: Arial, sans-serif;
+}

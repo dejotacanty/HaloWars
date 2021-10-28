@@ -1,0 +1,35 @@
+{
+    "Title": "Unranked",
+    "Tiers": {
+        "0": {
+            "Title": "Unranked 0",
+            "Media": {
+                "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/csr/unranked_00-61fca949c33f433ba7e7507d97ff130f-e7f7e1153fde49b499f2aeae896ffcd8.png",
+                "MimeType": "image/png",
+                "Caption": "",
+                "AlternateText": "",
+                "FolderPath": "games/halo-wars-2/csr",
+                "FileName": "unranked_00-61fca949c33f433ba7e7507d97ff130f-e7f7e1153fde49b499f2aeae896ffcd8.png"
+            },
+            "Image": {
+                "Width": 256,
+                "Height": 256
+            }
+        },
+        "1": {
+            "Title": "Unranked 1",
+            "Media": {
+                "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/csr/csr_unranked_array01-1d782b69500f4faea7bd310407f621f4-c0bf7d3429714d1597d7a01ebfc703ff.png",
+                "MimeType": "image/png",
+                "Caption": "",
+                "AlternateText": "",
+                "FolderPath": "games/halo-wars-2/csr",
+                "FileName": "csr_unranked_array01-1d782b69500f4faea7bd310407f621f4-c0bf7d3429714d1597d7a01ebfc703ff.png"
+            },
+            "Image": {
+                "Width": 256,
+                "Height": 256
+            }
+        }
+    }
+}
