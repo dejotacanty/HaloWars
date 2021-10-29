@@ -9,20 +9,15 @@ export const usePageTracking = () => {
   useEffect(() => {
     console.log(process.env.REACT_APP_GA_ID);
     //if (!window.location.href.includes("localhost")) {
-    ReactGA.initialize(process.env.REACT_APP_GA_ID as string, {
-      debug: true,
-      titleCase: false,
-    });
+    ReactGA.initialize(process.env.REACT_APP_GA_ID as string);
     //}
     setInitialized(true);
   }, []);
 
   useEffect(() => {
     if (initialized) {
-      console.log("loggin page view", location.pathname + location.search);
+        console.log('page view', location.pathname + location.search)
       ReactGA.pageview(location.pathname + location.search);
-      
-        ReactGA.ga('set', 'checkProtocolTask', null);
     }
   }, [initialized, location]);
 };

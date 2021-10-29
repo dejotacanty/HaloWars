@@ -59,3 +59,8 @@ body, html, #root {
 .table-surface {
   font-family: Arial, sans-serif;
 }
+
+.footer {
+  background-color: #eee;
+  padding-top: 1.42857em;
+}

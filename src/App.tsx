@@ -10,8 +10,8 @@ import { Leaderboard } from "./components/LeaderBoard/Leaderboard";
 import { NavBar } from "./components/layout/Navbar";
 import { GameHistory } from "./components/GameHistory";
 import { Game } from "./components/Game";
-import { createContext, useEffect, useState } from "react";
-import { GlobalContext, IGlobalContext } from "./context/context";
+import { useEffect, useState } from "react";
+import { GlobalContext } from "./context/context";
 import { useQuery } from "./utils/helpers";
 import { usePageTracking } from "./hooks/usePageTracking";
 // A custom hook that builds on useLocation to parse

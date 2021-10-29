@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import {
   GAME_FULL_IMG,
@@ -13,6 +13,7 @@ import {
 import { GlobalContext } from "../../context/context";
 
 export const NavBar = () => {
+  const history = useHistory();
   const location = useLocation();
   /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -77,7 +78,7 @@ toggle between hiding and showing the dropdown content */
 
   const updateGamerTag = () => {
     if(searchInputRef.current) {
-      setGamerTag(searchInputRef.current.value)
+      history.push(`/service-record?gamerTag=${searchInputRef.current.value}`)
     }
   }
 
