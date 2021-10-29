@@ -26,6 +26,7 @@ function App() {
 }
 
 function QueryParams() {
+  usePageTracking()
   let query = useQuery();
   let initalGamerTag = "";
   const queryGamerTag = query.get("gamerTag");
