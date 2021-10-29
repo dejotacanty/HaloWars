@@ -2166,6 +2166,7 @@ export const  leaderData: {[key: string]: ILeader} = {
                     "Container": -1
                 },
                 "Media": {
+                    "MediaHeadUrlMain": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2farbiter-ripa-moramee-cropped-ed512f910d0b4f9d9563c94bda2f9b70.png&leftCrop=80&rightCrop=80&bottomCrop=1080&topCrop=180&width=400&hash=s3aqKUEbbjx23os5vRzCFERjg0rqrbsRrrAf3bPY9ME%3d",
                     "MediaHeadUrl": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2farbiter-ripa-moramee-cropped-ed512f910d0b4f9d9563c94bda2f9b70.png&leftCrop=342&rightCrop=515&bottomCrop=1145&topCrop=180&width=120&height=120&hash=gXYVBJCDU%2bUcPuEGm1iYvsrBH6ESB9lEdDMaeZPXc1Q%3d",
                     "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/leaders/arbiter-ripa-moramee-cropped-ed512f910d0b4f9d9563c94bda2f9b70.png",
                     "MimeType": "image/png",
@@ -3103,6 +3104,7 @@ export const  leaderData: {[key: string]: ILeader} = {
                     "Container": -1
                 },
                 "Media": {
+                    "MediaHeadUrlMain": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fyapyap-f986fa8a011a4eb494ba030a9cbbd215.png&leftCrop=80&rightCrop=80&bottomCrop=1080&topCrop=180&width=400&hash=NYIoPZW5gvcJ1MWU5oxBDHZgt9SWBR79STtc7eUe7Fk%3d",
                     "MediaHeadUrl": "https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fyapyap-f986fa8a011a4eb494ba030a9cbbd215.png&leftCrop=342&rightCrop=515&bottomCrop=1145&topCrop=180&width=120&height=120&hash=iW5YPGzrCQBTgvsDbhe3pmKD3x5wE%2feDR3mUwoXyFQY%3d",
                     "MediaUrl": "https://content.halocdn.com/media/Default/games/halo-wars-2/leaders/yapyap-f986fa8a011a4eb494ba030a9cbbd215.png",
                     "MimeType": "image/png",

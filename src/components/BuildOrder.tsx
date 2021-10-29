@@ -4,7 +4,7 @@ import { useGameObject } from "../hooks/metadata/GameObjects";
 import { TmpImage } from "../interfaces/GameObject";
 import { Match, Player } from "../interfaces/Match";
 import { entries } from "../utils/entries";
-import { getPlayersByTeam, millisToMinutesAndSeconds } from "../utils/helpers";
+import { getPlayersByTeam, millisToMinutesAndSeconds, team1Image, team2Image } from "../utils/helpers";
 import './BuildOrder.css'
 import { HaloButton } from "./button/HaloButton";
 
@@ -59,20 +59,20 @@ export const BuildOrder = ({ match }: { match: Match }) => {
                   <div className="persona-image">
                     <span>
                       <img
-                        src="https://content.halocdn.com/media/Default/games/halo-wars-2/waypoint/team-1-red-icon-76906c53830b4bc89e76925980aa31db.png"
+                        src={team1Image}
                         alt="Team 1"
                       />
                     </span>
                   </div>
                   <HaloButton players={team1Players} onSelected={(pi) => setSelectedTeam1PlayerIndex(pi)}/>
                 </th>
-                <th> Time</th>
+                <th>Time</th>
                 <th className="id--image-text overflowable no-bold">
                   {" "}
                   <div className="persona-image">
                     <span>
                       <img
-                        src="https://content.halocdn.com/media/Default/games/halo-wars-2/waypoint/team-2-blue-icon-700899fb9c2f424a90316c8f8fb13d3f.png"
+                        src={team2Image}
                         alt="Team 2"
                       />
                     </span>

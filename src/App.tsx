@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { ServiceRecord } from "./components/ServiceRecord";
-import { Leaderboard } from "./components/Leaderboard";
+import { Leaderboard } from "./components/LeaderBoard/Leaderboard";
 import { NavBar } from "./components/layout/Navbar";
 import { GameHistory } from "./components/GameHistory";
 import { Game } from "./components/Game";

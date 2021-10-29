@@ -5,7 +5,7 @@
   Results?: (ResultsEntity)[] | null;
   Links: Links;
 }
-export interface ResultsEntity {
+export interface LeaderboardPlayer {
   Player: Player;
   Rank: number;
   Score: Score;

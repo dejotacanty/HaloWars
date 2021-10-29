@@ -166,7 +166,7 @@ toggle between hiding and showing the dropdown content */
               <div className="customdrop">
                 <div className="dropdown">
                   <button onClick={myFunction} className="dropbtn">
-                    {dropdownList[location.pathname]}
+                    {dropdownList[location.pathname] ? dropdownList[location.pathname] : dropdownList['/']}
                   </button>
                   <div id="myDropdown" className="dropdown-content">
                     {Object.keys(dropdownList).map((key) => {

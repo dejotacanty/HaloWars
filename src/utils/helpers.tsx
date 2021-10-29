@@ -139,13 +139,18 @@ export const statTableHeaders = [
   [headerCsr],
 ];
 
+
+const invalidUnitKeys = [
+  'pow_gp_scatterbombDummy_01'
+]
+
 export const getStatsForTable = (player: Player, requestedStats: string[]) => {
   const stats: any[] = [];
-  const leader = leaderData[player.LeaderId];
   let builtUnits = 0;
   let unitsLost = 0;
   let unitsKilled = 0;
   for (const [key, unit] of entries(player.UnitStats)) {
+    if(invalidUnitKeys.includes(key)) continue;
     builtUnits += unit.TotalBuilt;
     unitsLost += unit.TotalLost;
     unitsKilled += unit.TotalDestroyed;
@@ -156,8 +161,10 @@ export const getStatsForTable = (player: Player, requestedStats: string[]) => {
       const designation = csrData[designationId];
       const tierId = designationId === 0 ? 10 - player.RatingProgress.UpdatedCsr.MeasurementMatchesRemaining : player.RatingProgress.UpdatedCsr.Tier
       const tier = designation.Tiers[tierId];
+      console.log({tier, designation, r: player.RatingProgress.UpdatedCsr})
+      const title = designationId === 7 ? '#' + player.RatingProgress.UpdatedCsr.Rank + ' ' + tier.Title : tier.Title
       stats.push(
-        <img src={tier.Media.MediaUrl} alt={tier.Title} title={tier.Title} />
+        <img src={tier.Media.MediaUrl} alt={tier.Title} title={title} />
       );
       return;
     }
@@ -384,3 +391,5 @@ export const unrankedPlaylistMock: RankedPlaylistStatsEntity = {
   "GameMode": null,
   "HighestObjectiveScoreByTeamSize": {}
 }
+
+export const leaderBoardPerPage = 25

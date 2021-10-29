@@ -80,6 +80,8 @@ const TableRow = ({
   player: Player;
   columns: string[];
 }) => {
+  //this match id  contains champions
+  //19e6dda3-3f6a-4457-a5e6-4b9cfae7f482
   const stats = getStatsForTable(player, columns);
 
   const leader = leaderData[player.LeaderId];
@@ -105,6 +107,12 @@ const TableRow = ({
         <Link
           className="text--medium gamertag case-sensitive"
           to={"/service-record?gamerTag=" + player.HumanPlayerId.Gamertag}
+          onClick={(e) => {
+            if(!player.HumanPlayerId.Gamertag) {
+            e.preventDefault();
+            e.stopPropagation();
+            }
+          }}
         >
           {player.HumanPlayerId.Gamertag}
         </Link>
