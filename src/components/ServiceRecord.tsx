@@ -20,6 +20,7 @@ import { formatLeaderStatData } from "../utils/helpers";
 import { HaloPieChart } from "./charts/PieChart";
 import { SimpleBarChart } from "./charts/SimpleBarChart";
 import { Page } from "./layout/Page";
+import { SeachBox } from "./SearchBox";
 import { HighestRank } from "./service-record/HighestRank";
 import { LeadersUsed } from "./service-record/LeadersUsed";
 
@@ -119,7 +120,15 @@ export const ServiceRecord = () => {
 
   const [leaderPieChartHeight, setLeaderPieChartHeight] = useState(0);
 
-  if (!gameHistory || !gamerTag || !playerStatSummary) {
+  if(!gamerTag) {
+    return (
+      <div style={{padding: 10}}> 
+      <SeachBox/>
+      </div>
+    )
+  }
+
+  if (!gameHistory || !playerStatSummary) {
     return <></>;
   }
 

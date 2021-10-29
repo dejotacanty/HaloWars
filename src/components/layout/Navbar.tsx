@@ -11,9 +11,9 @@ import {
   MAIN_SML_IMG,
 } from "../../data/images";
 import { GlobalContext } from "../../context/context";
+import { SeachBox } from "../SearchBox";
 
 export const NavBar = () => {
-  const history = useHistory();
   const location = useLocation();
   /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -76,11 +76,7 @@ toggle between hiding and showing the dropdown content */
   const searchInputRef = useRef<HTMLInputElement>(null);
   const {gamerTag, setGamerTag} = useContext(GlobalContext);
 
-  const updateGamerTag = () => {
-    if(searchInputRef.current) {
-      history.push(`/service-record?gamerTag=${searchInputRef.current.value}`)
-    }
-  }
+  
 
   return (
     <div>
@@ -99,40 +95,7 @@ toggle between hiding and showing the dropdown content */
                   alt="Halo"
                 />
               </a>
-              <div className="search-form">
-              <div className="search-box" style={{marginTop: "7px"}}>
-                <div className="input-wrapper">
-                  <input
-                    id="query"
-                    name="query"
-                    type="search"
-                    placeholder="Search Site or Gamertag"
-                    maxLength={100}
-                    data-autosuggest=""
-                    data-autosuggest-links=""
-                    autoComplete="off"
-                    onKeyPress={(event) => {
-                      if(event.key === 'Enter') {
-                        updateGamerTag()
-                      }
-                    } }
-                    ref={searchInputRef}
-                  />
-                </div>
-                {/* <Link to={`/service-record?gamerTag=${searchInputRef.current?.value}`}> */}
-                <button
-                  type="submit"
-                  value="Search"
-                  data-analytics="Site:Header/Search"
-                  aria-label="Search"
-                  onClick={updateGamerTag}
-                >
-                <span>Search</span>
-                <span className="icon icon--search"></span>
-              </button>
-              {/* </Link> */}
-              </div>
-            </div>
+              <SeachBox/>
           </div>
           </div>
         </div>
@@ -161,7 +124,7 @@ toggle between hiding and showing the dropdown content */
           <div className="content-offset">
             <div className="content">
               <h4 className="text--small">Games</h4>
-              <h1 className="text--largest">Halo Wars 2 | {gamerTag}</h1>
+              <h1 className="text--largest">Halo Wars 2 {gamerTag && '| ' + gamerTag}</h1>
               {gamerTag && (
                 
               <div className="customdrop">
