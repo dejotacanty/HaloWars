@@ -8,6 +8,7 @@ import {
   getPlayerStat,
   usePlayerStatSummary,
 } from "../hooks/player/PlayerStatSummary";
+import { usePageTracking } from "../hooks/usePageTracking";
 import { PieChartData } from "../interfaces/Chart";
 import {
   PlayerStatSummary,
@@ -99,6 +100,7 @@ function getWinLossSummary(playerStatSummary: PlayerStatSummary) {
 
 export const ServiceRecord = () => {
   const { gamerTag } = useContext(GlobalContext);
+  usePageTracking()
 
   const { gameHistory } = useGameHistory(gamerTag, 0, 20, "matchmaking");
 

@@ -13,6 +13,7 @@ import { Game } from "./components/Game";
 import { createContext, useEffect, useState } from "react";
 import { GlobalContext, IGlobalContext } from "./context/context";
 import { useQuery } from "./utils/helpers";
+import { usePageTracking } from "./hooks/usePageTracking";
 // A custom hook that builds on useLocation to parse
 // the query string for you.
 

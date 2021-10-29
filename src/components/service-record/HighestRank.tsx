@@ -51,7 +51,6 @@ export const HighestRank = ({
         }
       }
     }
-    console.log(search)
     //if no rank games then they are unranked
     
     const unrankedCsr: HighestCsr = {
@@ -64,10 +63,8 @@ export const HighestRank = ({
     const tmpHighestCsr = search.length === 0 ? unrankedCsr : search[highestIndex].HighestCsr;
     const csr = csrData[tmpHighestCsr.Designation];
     setCsr(csr);
-    console.log({search})
     setPlaylistEntry(search[highestIndex] ? search[highestIndex] : unrankedPlaylistMock);
   }, [playerStatSummary]);
-  console.log({playlistEntry})
   if (!csr || !playlistEntry) return <></>;
   
   const rankData: PieChartData[] = [
