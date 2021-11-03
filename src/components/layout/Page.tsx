@@ -13,7 +13,7 @@ export const Page = ({ children, title }: { children: any; title: string }) => {
           {children}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 };

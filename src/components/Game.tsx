@@ -81,14 +81,12 @@ export const Game = () => {
           <div className="visual">
             <div className="map-image">
               <img
-                //src="https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fmaps%2fmap-frontier-4116c5c6e92e41e1907e3b793252d4b1.jpg&amp;height=700&amp;hash=2D233oUWqvuIcOaQvWv2mF5FGxuGRDODF%2bZEELBBBC8%3d"
                 src={map.Image.View.Media.MediaUrl}
                 alt={map.DisplayInfo.View.HW2MapDisplayInfo.Name}
               />
             </div>
             <div className="leader-image" style={{ color: "#67A6E5" }}>
               <img
-                //src="https://image.halocdn.com/?path=https:%2f%2fcontent.halocdn.com%2fmedia%2fDefault%2fgames%2fhalo-wars-2%2fleaders%2fdecimus-f0858672e88a4750b817164402a03d0d.png&amp;height=225&amp;hash=vgC4tJEUI3Ld4ZqsCpUR%2fQjlUPwU5C%2fryLIWxXxnY5g%3d"
                 src={leaderData[chosenPlayer.LeaderId].Image.View.Media.MediaUrl}
                 alt={leaderData[chosenPlayer.LeaderId].DisplayInfo.View.HW2LeaderDisplayInfo?.Name}
               />

@@ -84,17 +84,17 @@ toggle between hiding and showing the dropdown content */
         <div className="header-position">
           <div className="header-contain">
             <div className="header-wrapper">
-              <a
+              <Link
                 className="header--item site-brand"
-                href="https://www.halowaypoint.com/en-gb"
+                to={`/`}
                 title="Home"
                 data-analytics="Site:Header/WaypointHomeLink"
               >
                 <img
-                  src="//w.halocdn.com/content/Images/halo-logo-2x.png"
+                  src="/halo-logo-2x.png"
                   alt="Halo"
                 />
-              </a>
+              </Link>
               <SeachBox/>
           </div>
           </div>
