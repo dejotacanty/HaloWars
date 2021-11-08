@@ -138,7 +138,7 @@ export const GameTable = ({ match }: GameTableProps) => {
     <>
       <div className="extend-table initialized">
         <NavCarousel onChange={(i) => setTeam1TableHeadings(headings[i])} />
-        <div className="table-surface">
+        <div className="table-surface" style={{overflow: "auto"}}>
           <table>
             <thead>
               <tr>
@@ -164,10 +164,11 @@ export const GameTable = ({ match }: GameTableProps) => {
               })}
             </tbody>
           </table>
-
+        </div>
+        </div>
           <div className="extend-table initialized">
             <NavCarousel onChange={(i) => setTeam2TableHeadings(headings[i])} />
-            <div className="table-surface">
+            <div className="table-surface" style={{overflow: "auto"}}>
               <table>
                 <thead>
                   <tr>
@@ -196,8 +197,6 @@ export const GameTable = ({ match }: GameTableProps) => {
               </table>
             </div>
           </div>
-        </div>
-      </div>
     </>
   );
 };

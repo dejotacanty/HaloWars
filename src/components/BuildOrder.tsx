@@ -50,7 +50,7 @@ export const BuildOrder = ({ match }: { match: Match }) => {
     <div>
       <h1>Build Order</h1>
       <div className="extend-table build-order--comparison initialized">
-        <div className="table-surface">
+        <div className="table-surface" style={{overflow: "auto"}}>
           <table>
             <thead>
               <tr className="group-id">
