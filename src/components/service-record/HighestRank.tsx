@@ -33,14 +33,23 @@ export const HighestRank = ({
     let highestDesignation = 0;
     let highestTierPercent = 0;
     let highestRaw = 0;
+    let highestRank = 1000;
     for (let i = 0; i < search.length; i++) {
       const pNextTier = search[i].HighestCsr.PercentToNextTier;
       const designation = search[i].HighestCsr.Designation;
       if (search[i].HighestCsr.Designation >= highestDesignation) {
-        if (hasCsr(designation)) {
+        if (designation === 6 && highestDesignation < 7) {
           if (search[i].HighestCsr.Raw > highestRaw) {
             highestDesignation = designation;
             highestRaw = search[i].HighestCsr.Raw;
+            highestIndex = i;
+          }
+          continue;
+        }
+        if(designation === 7) {
+          if ((search[i].HighestCsr.Rank as number) < highestRank) {
+            highestDesignation = designation;
+            highestRank = (search[i].HighestCsr.Rank as number);
             highestIndex = i;
           }
           continue;
