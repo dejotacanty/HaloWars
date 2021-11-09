@@ -101,7 +101,7 @@ function getWinLossSummary(playerStatSummary: PlayerStatSummary) {
 export const ServiceRecord = () => {
   const { gamerTag } = useContext(GlobalContext);
 
-  const { gameHistory } = useGameHistory(gamerTag, 0, 20, "matchmaking");
+  const { gameHistory, isLoading: isGameHistoryLoading } = useGameHistory(gamerTag, 0, 20, "matchmaking");
 
   const { playerStatSummary } = usePlayerStatSummary(gamerTag);
 
@@ -128,12 +128,16 @@ export const ServiceRecord = () => {
     )
   }
 
-  if (!gameHistory || !playerStatSummary) {
+  if (isGameHistoryLoading === false && !gameHistory) {
     return (
     <h1 style={{ textAlign: "center" }}>
       {gamerTag} has not played halo wars 2 {":("}
     </h1>
     )
+  }
+
+  if(!playerStatSummary || !gameHistory) {
+    return <></>
   }
 
   const leaderStats = getLeaderSummary(playerStatSummary);
