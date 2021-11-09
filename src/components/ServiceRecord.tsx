@@ -129,15 +129,11 @@ export const ServiceRecord = () => {
   }
 
   if (!gameHistory || !playerStatSummary) {
-    return <></>;
-  }
-
-  if (gameHistory.ResultCount === 0) {
     return (
-      <h1 style={{ textAlign: "center" }}>
-        {gamerTag} has not played halo wars 2 :(
-      </h1>
-    );
+    <h1 style={{ textAlign: "center" }}>
+      {gamerTag} has not played halo wars 2 {":("}
+    </h1>
+    )
   }
 
   const leaderStats = getLeaderSummary(playerStatSummary);

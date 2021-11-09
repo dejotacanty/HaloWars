@@ -108,7 +108,7 @@ export const HighestRank = ({
                 )}
                 {csr.Title}
                 {!hasCsr(playlistEntry.HighestCsr.Designation) && playlistEntry.HighestCsr.Designation !== 0 &&
-                  playlistEntry.HighestCsr.Tier}
+                  ' ' + playlistEntry.HighestCsr.Tier}
               </p>
               {hasCsr(playlistEntry.HighestCsr.Designation) && (
                 <p className="text--smallest">
