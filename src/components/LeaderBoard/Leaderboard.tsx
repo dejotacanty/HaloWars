@@ -23,23 +23,6 @@ export const Leaderboard = () => {
     const [page, setPage] = useState(0)
 
     const leaderPlayers = leaderboardData.slice(page * leaderBoardPerPage, page * leaderBoardPerPage + leaderBoardPerPage);
-    if(page === 0 && leaderPlayers.length > 0) {
-        const warnsterTopPlayer: LeaderboardPlayer = {
-            "Player": {
-                "Gamertag": "Warnster",
-                "Xuid": null
-            },
-            "Rank": 0,
-            "Score": {
-                "Tier": 1,
-                "DesignationId": 7,
-                "Csr": leaderPlayers[0].Score.Csr + 50,
-                "PercentToNextTier": 0,
-                "Rank": 0
-            }
-        }
-        leaderPlayers.unshift(warnsterTopPlayer)
-    }
     return (
         <Page title="Leaderboard">
             <div className="region">
