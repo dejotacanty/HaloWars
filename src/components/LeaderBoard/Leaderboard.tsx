@@ -23,7 +23,7 @@ export const Leaderboard = () => {
     const [page, setPage] = useState(0)
 
     const leaderPlayers = leaderboardData.slice(page * leaderBoardPerPage, page * leaderBoardPerPage + leaderBoardPerPage);
-    if(page === 0) {
+    if(page === 0 && leaderPlayers.length > 0) {
         const warnsterTopPlayer: LeaderboardPlayer = {
             "Player": {
                 "Gamertag": "Warnster",
