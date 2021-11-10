@@ -14,8 +14,7 @@ import { useEffect, useState } from "react";
 import { GlobalContext } from "./context/context";
 import { useQuery } from "./utils/helpers";
 import { usePageTracking } from "./hooks/usePageTracking";
-// A custom hook that builds on useLocation to parse
-// the query string for you.
+import ReactGA from "react-ga";
 
 function App() {
   return (
@@ -28,6 +27,7 @@ function App() {
 function QueryParams() {
   usePageTracking()
   let query = useQuery();
+  const isPWA = query.get('isPWA')
   let initalGamerTag = "";
   const queryGamerTag = query.get("gamerTag");
   const localStorageGamerTag = localStorage.getItem("gamerTag");
@@ -39,6 +39,19 @@ function QueryParams() {
     }
   }
 
+  useEffect(() => {
+    if(isPWA && isPWA === "true") {
+      ReactGA.event({
+        category: 'User',
+        action: 'Opened with PWA'
+      })
+    } else {
+      ReactGA.event({
+        category: 'User',
+        action: 'Opened on Browser'
+      })
+    }
+  }, [])
   const [gamerTag, setGamerTag] = useState<string>(initalGamerTag);
   const [match, setMatch] = useState<string>("");
   const value = { gamerTag, setGamerTag, match, setMatch };
