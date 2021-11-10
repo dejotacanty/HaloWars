@@ -17,7 +17,7 @@ export const LeadersUsed = ({
         total += stats[i].value
     }
 
-
+    const leader = leaderData[stats[0].leaderId]
   return (
     <div className="stat">
       <div className="chart-title">
@@ -26,7 +26,7 @@ export const LeadersUsed = ({
       </div>
       <div className="hw2-leader-landscape">
         <img
-          src={leaderData[stats[0].leaderId].Image.View.Media.MediaHeadUrlMain}
+          src={leader ? leader.Image.View.Media.MediaHeadUrlMain : ''}
           alt={stats[0].name}
         />
       </div>
@@ -39,6 +39,7 @@ export const LeadersUsed = ({
           </div>
           <div className="value">{Math.round(stats[0].value / total * 100)}%</div>
         </li>
+        {stats[1] && (
         <li className="color-2">
           <div className="desc">
             {stats[1].name}
@@ -46,6 +47,7 @@ export const LeadersUsed = ({
           </div>
           <div className="value">{Math.round(stats[1].value / total * 100)}%</div>
         </li>
+        )}
         {stats[2] && (
         <li className="color-3">
           <div className="desc">
