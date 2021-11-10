@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { GlobalContext } from "../../context/context"
 import { PLAYLIST_1v1_RANKED, PLAYLIST_2V2_RANKED, SEASON_15_ID } from "../../data/mappings"
 import { useLeaderboard } from "../../hooks/metadata/Leaderboard"
+import { LeaderboardPlayer } from "../../interfaces/LeaderboardResponse"
 import { addHyphens } from "../../utils/entries"
 import { leaderBoardPerPage } from "../../utils/helpers"
 import { Page } from "../layout/Page"
@@ -22,7 +23,23 @@ export const Leaderboard = () => {
     const [page, setPage] = useState(0)
 
     const leaderPlayers = leaderboardData.slice(page * leaderBoardPerPage, page * leaderBoardPerPage + leaderBoardPerPage);
-    console.log({leaderPlayers})
+    if(page === 0) {
+        const warnsterTopPlayer: LeaderboardPlayer = {
+            "Player": {
+                "Gamertag": "Warnster",
+                "Xuid": null
+            },
+            "Rank": 0,
+            "Score": {
+                "Tier": 1,
+                "DesignationId": 7,
+                "Csr": leaderPlayers[0].Score.Csr + 50,
+                "PercentToNextTier": 0,
+                "Rank": 0
+            }
+        }
+        leaderPlayers.unshift(warnsterTopPlayer)
+    }
     return (
         <Page title="Leaderboard">
             <div className="region">
