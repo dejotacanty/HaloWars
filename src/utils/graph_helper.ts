@@ -19,7 +19,10 @@ export const  calculatePopulation = (
         time: millisToMinutesAndSeconds(event.TimeSinceStartMilliseconds),
       };
       for (const [key, resource] of entries(event.PlayerResources)) {
-        newData[players[key].HumanPlayerId.Gamertag] = resource.Population;
+        const humanPlayer = players[key].HumanPlayerId
+        if(humanPlayer) {
+        newData[humanPlayer.Gamertag] = resource.Population;
+        }
       }
       playerResources.push(newData)
   }
@@ -51,7 +54,10 @@ export const calculateSuppyRate = (
           resource[resourceKey] -
           previousResourceTracker[Number(key)][resourceKey];
       }
-      newData[players[key].HumanPlayerId.Gamertag] = Math.round(supply);
+      const humanPlayerId = players[key].HumanPlayerId
+      if(humanPlayerId) {
+        newData[humanPlayerId.Gamertag] = Math.round(supply);
+      }
       //Checks if supply has gone negative and does not add it
       if (supply < 0) {
         isNegativeSet = true;

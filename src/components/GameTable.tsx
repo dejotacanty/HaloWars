@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { csrData } from "../data/csr";
 import { leaderData } from "../data/leaders";
 import { Match, Player } from "../interfaces/Match";
+import { ResultElement } from "../interfaces/MMR";
 import { entries } from "../utils/entries";
 import {
   getPlayersByTeam,
@@ -14,6 +15,7 @@ import { TeamHeader } from "./table/TeamHeader";
 
 interface GameTableProps {
   match: Match;
+  playerXp?: ResultElement[]
 }
 
 const headings: string[][] = JSON.parse(JSON.stringify(statTableHeaders));
@@ -76,13 +78,15 @@ const NavCarousel = ({ onChange }: { onChange: (index: number) => void }) => {
 const TableRow = ({
   player,
   columns,
+  playerXp,
 }: {
   player: Player;
   columns: string[];
+  playerXp?: ResultElement[]
 }) => {
   //this match id  contains champions
   //19e6dda3-3f6a-4457-a5e6-4b9cfae7f482
-  const stats = getStatsForTable(player, columns);
+  const stats = getStatsForTable(player, columns, playerXp);
 
   const leader = leaderData[player.LeaderId];
   return (
@@ -106,15 +110,15 @@ const TableRow = ({
       <th className="id--text">
         <Link
           className="text--medium gamertag case-sensitive"
-          to={"/service-record?gamerTag=" + player.HumanPlayerId.Gamertag}
+          to={"/service-record?gamerTag=" + player.HumanPlayerId?.Gamertag}
           onClick={(e) => {
-            if(!player.HumanPlayerId.Gamertag) {
+            if(player.HumanPlayerId === null) {
             e.preventDefault();
             e.stopPropagation();
             }
           }}
         >
-          {player.HumanPlayerId.Gamertag}
+          {player.HumanPlayerId?.Gamertag}
         </Link>
       </th>
       {stats.map((s) => {
@@ -124,12 +128,16 @@ const TableRow = ({
   );
 };
 
-export const GameTable = ({ match }: GameTableProps) => {
+export const GameTable = ({ match, playerXp }: GameTableProps) => {
   const { team1Players, team2Players } = getPlayersByTeam(match.Players);
   if (team1Players[0].RatingProgress && team1Players[0].RatingProgress.UpdatedCsr !== null) {
+
     headings[0] = [...statTableHeaders[3], ...statTableHeaders[0]];
   } else {
     headings[0] = statTableHeaders[0];
+  }
+  if(match.PlaylistId !== "00000000-0000-0000-0000-000000000000") {
+    headings[0] = [...statTableHeaders[4],...headings[0]]
   }
   const [team1TableHeadings, setTeam1TableHeadings] = useState(headings[0]);
   const [team2TableHeadings, setTeam2TableHeadings] = useState(headings[0]);
@@ -159,7 +167,7 @@ export const GameTable = ({ match }: GameTableProps) => {
             <tbody>
               {team1Players.map((player) => {
                 return (
-                  <TableRow player={player} columns={team1TableHeadings} />
+                  <TableRow player={player} columns={team1TableHeadings} playerXp={playerXp} />
                 );
               })}
             </tbody>
@@ -190,7 +198,7 @@ export const GameTable = ({ match }: GameTableProps) => {
                 <tbody>
                   {team2Players.map((player) => {
                     return (
-                      <TableRow player={player} columns={team2TableHeadings} />
+                      <TableRow player={player} columns={team2TableHeadings} playerXp={playerXp} />
                     );
                   })}
                 </tbody>

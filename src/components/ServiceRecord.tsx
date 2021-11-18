@@ -23,6 +23,7 @@ import { Page } from "./layout/Page";
 import { SeachBox } from "./SearchBox";
 import { HighestRank } from "./service-record/HighestRank";
 import { LeadersUsed } from "./service-record/LeadersUsed";
+import { Mmr } from "./service-record/Mmr";
 
 export type LeaderChartData = PieChartData & { leaderId: string };
 
@@ -281,6 +282,14 @@ export const ServiceRecord = () => {
             </div>
           </div>
         </div>
+        <div className="row row-4 valign-bottom" style={{marginTop: "20px"}}>
+          <div className="col">
+            
+          <Mmr
+              chartHeight={leaderPieChartHeight}
+            />
+            </div>
+          </div>
       </div>
       <div className="button-list">
         <ul>

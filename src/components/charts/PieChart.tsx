@@ -5,6 +5,20 @@ import { designationToColourMap } from '../../utils/helpers';
 
 export const HaloPieChart = ({data, label, height, chartSetting, designation}: {data: PieChartData[], label: string, height: number, chartSetting: string, designation?: number}) => {
 
+  const getMMRColour = (ranking: number) => {
+    if(ranking < 1) {
+      return '#f14108'
+    }
+    if(ranking >=1 && ranking < 3) {
+      return '#ffc81a'
+    }
+    if(ranking >= 3) {
+      return '#91d642'
+    }
+  }
+
+  const mmrRating = data.find((d) => d.name === "mmr");
+
   const pieChartSettings: {[key: string]: any} = {
     leader: {
       paddingAngle: 2,
@@ -17,6 +31,12 @@ export const HaloPieChart = ({data, label, height, chartSetting, designation}: {
       startAngle:90,
       endAngle: -270,
       colours: [designation ? designationToColourMap(designation) : 1, '#eee']
+    },
+    mmr: {
+      paddingAngle: 0,
+      startAngle:90,
+      endAngle: -270,
+      colours: [mmrRating ? getMMRColour(mmrRating.value) : getMMRColour(0), '#eee']
     },
     winLoss: {
       paddingAngle: 0,

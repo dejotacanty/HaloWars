@@ -8,6 +8,7 @@ import { playlists } from "../data/playlists";
 import { PieChartData } from "../interfaces/Chart";
 import { ILeader } from "../interfaces/Leader";
 import { Player } from "../interfaces/Match";
+import { ResultElement } from "../interfaces/MMR";
 import { AllLeaderStats, LeaderStats, RankedPlaylistStatsEntity } from "../interfaces/PlayerStatSummary";
 import { addHyphens, entries } from "./entries";
 
@@ -105,6 +106,7 @@ export const getPlayersByTeam = (players: { [key: string]: Player }) => {
 };
 
 const headerCsr = "CSR";
+const headerMmr = "MMR"
 const headerUnitsBuilt = "Units Built";
 const headerUnitsLost = "Units Lost";
 const headerEnemyUnitsKilled = "Enemy Units Killed";
@@ -137,6 +139,8 @@ export const statTableHeaders = [
     "Leader Power Units Spawned",
   ],
   [headerCsr],
+  [
+    headerMmr,]
 ];
 
 
@@ -144,7 +148,7 @@ const invalidUnitKeys = [
   'pow_gp_scatterbombDummy_01'
 ]
 
-export const getStatsForTable = (player: Player, requestedStats: string[]) => {
+export const getStatsForTable = (player: Player, requestedStats: string[], playerXp?: ResultElement[]) => {
   const stats: any[] = [];
   let builtUnits = 0;
   let unitsLost = 0;
@@ -156,17 +160,28 @@ export const getStatsForTable = (player: Player, requestedStats: string[]) => {
     unitsKilled += unit.TotalDestroyed;
   }
   requestedStats.forEach((s) => {
+    //gets information to display csr data
     if (s === headerCsr) {
       const designationId = player.RatingProgress.UpdatedCsr.Designation ? player.RatingProgress.UpdatedCsr.Designation : 0
       const designation = csrData[designationId];
       const tierId = designationId === 0 ? 10 - player.RatingProgress.UpdatedCsr.MeasurementMatchesRemaining : player.RatingProgress.UpdatedCsr.Tier
       const tier = designation.Tiers[tierId];
-      console.log({tier, designation, r: player.RatingProgress.UpdatedCsr})
       const title = designationId === 7 ? '#' + player.RatingProgress.UpdatedCsr.Rank + ' ' + tier.Title : tier.Title
       stats.push(
         <img src={tier.Media.MediaUrl} alt={tier.Title} title={title} />
       );
       return;
+    }
+
+    if(s === headerMmr) {
+      console.log('finding mmr stats', {playerXp, gamer: player.HumanPlayerId})
+      if(playerXp) {
+        const mmr = playerXp.find(p => p.Id === player.HumanPlayerId?.Gamertag)
+        if(mmr) {
+        stats.push(roundMMR(mmr?.Result.Mmr.Rating));
+        }
+      }
+      return
     }
 
     if (s === headerBasesBuilt) {
@@ -393,3 +408,21 @@ export const unrankedPlaylistMock: RankedPlaylistStatsEntity = {
 }
 
 export const leaderBoardPerPage = 25
+
+export const roundMMR = (mmr: number) => {
+ return Math.round(mmr * 100) / 100
+}
+
+export const getGamerTags = (players: {
+  [key: string]: Player;
+} | undefined): string => {
+  if(!players) return ''
+  let playersStr = '';
+  for(const [key,value] of entries(players)) {
+    if(value.HumanPlayerId && !value.HumanPlayerId?.Gamertag.includes('Computer')) {
+    playersStr += value.HumanPlayerId.Gamertag + ','
+    }
+  }
+  playersStr = playersStr.substring(0, playersStr.length - 1);
+  return playersStr
+}

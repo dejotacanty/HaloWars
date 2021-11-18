@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback, useContext } from "react";
 import { Match, Player, ResourceHeartBeat } from "../interfaces/Match";
 import { BuildOrder } from "./BuildOrder";
 import { GameGraphs } from "./charts/stat-charts/GameGraphs";
-import { convertPlaytime, findPlaylist, getDateFormat, team1Colour, team2Colour, useQuery } from "../utils/helpers";
+import { convertPlaytime, findPlaylist, getDateFormat, getGamerTags, team1Colour, team2Colour, useQuery } from "../utils/helpers";
 import { calculatePopulation, calculateSuppyRate } from "../utils/graph_helper";
 import { entries } from "../utils/entries";
 import { GlobalContext } from "../context/context";
@@ -14,12 +14,14 @@ import { mapData } from "../data/maps";
 import { playlists } from "../data/playlists";
 import { format } from "date-fns";
 import { leaderData } from "../data/leaders";
+import { usePlayerXp } from "../hooks/player/usePlayerXp";
 
 export const Game = () => {
   let query = useQuery();
   const matchId = query.get("matchId");
   const { match } = useMatch(matchId as string);
-
+  const {playerXp} = usePlayerXp(getGamerTags(match?.Players), match?.PlaylistId)
+  console.log({playerXp}, 'game')
   let computerPlayerIndex = 1;
 
   if(match) {
@@ -145,7 +147,7 @@ export const Game = () => {
         <Tabs
           tabs={["Stats", "Graphs", "Build Order"]}
           tabData={[
-            <GameTable match={match} />,
+            <GameTable match={match} playerXp={playerXp}/>,
             <GameGraphs
               match={match}
               data={{

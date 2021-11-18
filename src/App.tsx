@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useLocation,
 } from "react-router-dom";
 import { ServiceRecord } from "./components/ServiceRecord";
 import { Leaderboard } from "./components/LeaderBoard/Leaderboard";

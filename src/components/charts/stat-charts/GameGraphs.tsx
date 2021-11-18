@@ -49,7 +49,9 @@ export const GameGraphs = ({ match, data }: GameGraphProps) => {
     let playerObject: any = {};
     for (const [key, player] of entries(e.PlayerResources)) {
       const selectPlayer = match.Players[key];
+      if(selectPlayer.HumanPlayerId) {
       playerObject[selectPlayer.HumanPlayerId.Gamertag] = player.Supply;
+      }
     }
     playerObject.time = millisToMinutesAndSeconds(e.TimeSinceStartMilliseconds);
     data1.push(playerObject);
@@ -99,7 +101,7 @@ export const GameGraphs = ({ match, data }: GameGraphProps) => {
                 <Line
                   isAnimationActive={false}
                   type="monotone"
-                  dataKey={player.HumanPlayerId.Gamertag}
+                  dataKey={player.HumanPlayerId?.Gamertag}
                   stroke={
                     teamPlayerColourMaps[player.TeamId][player.TeamPlayerIndex]
                   }

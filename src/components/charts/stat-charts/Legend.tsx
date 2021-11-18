@@ -108,10 +108,10 @@ export const Legend = ({
                               className="text--medium gamertag case-sensitive"
                               to={
                                 "/service-record?gamerTag=" +
-                                player.HumanPlayerId.Gamertag
+                                player.HumanPlayerId?.Gamertag
                               }
                             >
-                              {player.HumanPlayerId.Gamertag}
+                              {player.HumanPlayerId?.Gamertag}
                             </Link>
                           </th>
                         </tr>
@@ -183,10 +183,10 @@ export const Legend = ({
                               className="text--medium gamertag case-sensitive"
                               to={
                                 "/service-record?gamerTag=" +
-                                player.HumanPlayerId.Gamertag
+                                player.HumanPlayerId?.Gamertag
                               }
                             >
-                              {player.HumanPlayerId.Gamertag}
+                              {player.HumanPlayerId?.Gamertag}
                             </Link>
                           </th>
                         </tr>

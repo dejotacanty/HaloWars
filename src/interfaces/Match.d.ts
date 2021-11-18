@@ -54,7 +54,7 @@ export interface MatchStartDateClass {
 
 export interface Player {
   IsHuman:              boolean;
-  HumanPlayerId:        HumanPlayerID;
+  HumanPlayerId:        HumanPlayerID | null;
   ComputerPlayerId:     null;
   ComputerDifficulty:   null;
   TeamId:               number;

@@ -43,7 +43,7 @@ export const HaloButton = ({ players, onSelected }: HaloButtonProps) => {
               />
             </span>
           </div>
-          {selectedPlayer.HumanPlayerId.Gamertag}
+          {selectedPlayer.HumanPlayerId?.Gamertag}
         </a>
         <ul className={`dropdown-content ${dropdown ? "show" : ""}`}>
           {players.map((player, index) => {
@@ -67,7 +67,7 @@ export const HaloButton = ({ players, onSelected }: HaloButtonProps) => {
                       />
                     </span>
                   </div>
-                  {player.HumanPlayerId.Gamertag}
+                  {player.HumanPlayerId?.Gamertag}
                 </button>
               </li>
             );
