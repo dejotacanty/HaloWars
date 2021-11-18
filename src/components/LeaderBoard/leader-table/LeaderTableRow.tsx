@@ -30,8 +30,16 @@ export const LeaderTableRow = ({leaderPlayer}: {leaderPlayer: LeaderboardPlayer}
           </div>
         </div>
       </td>
-      <td className="align-left">N/A :(</td>
-      <td className="align-left">N/A :(</td>
+      <td className="align-left">
+        <div className="text">
+          <p>{leaderPlayer.Wins.TotalMatchesWon}</p>
+        </div>
+      </td>
+      <td className="align-left">
+        <div className="text">
+          <p>{leaderPlayer.Losses.TotalMatchesLost}</p>
+        </div>
+      </td>
       <td className="align-left">
         <div className="persona">
           <div className="image avatar avatar--hw2-leader">

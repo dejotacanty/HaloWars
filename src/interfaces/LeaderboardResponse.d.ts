@@ -9,6 +9,8 @@ export interface LeaderboardPlayer {
   Player: Player;
   Rank: number;
   Score: Score;
+  Wins: TotalWins;
+  Losses:TotalLosses;
 }
 export interface Player {
   Gamertag: string;
@@ -20,6 +22,12 @@ export interface Score {
   Csr: number;
   PercentToNextTier: number;
   Rank: number;
+}
+export interface TotalWins {
+  TotalMatchesWon: number;
+}
+export interface TotalLosses {
+  TotalMatchesLost: number;
 }
 export interface Links {
   Self: Self;
