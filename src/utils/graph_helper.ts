@@ -99,7 +99,7 @@ export const calculateSuppyRate = (
 export const GraphOptions = {
   'population': 'population',
   'supply': 'supply income rate',
-  'power': 'enery income rate',
+  'power': 'energy income rate',
 }
 
 export type GraphType = 'supply' | 'power' | 'population'
